@@ -9,8 +9,13 @@
   <div id="app"></div>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      ccsiInventory.mount("#app", 500 , null, function(data){
-				return Promise.resolve();
+			ccsiInventory.mount("#app" , {
+				height: 500,
+				cellHeight: null,
+				dataFn: null,
+				postFn: function() {
+					return Promise.resolve()
+				},
 			});
     });
   </script>

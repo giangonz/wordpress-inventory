@@ -72,7 +72,7 @@ class ContactForm extends React.Component {
 		if (error) {
 			Alert.error(error, {
 				position: 'top-right',
-        timeout: 'none',
+        timeout: 3000,
 			});
 		} else if (this.props.onSubmit) {
 
@@ -80,7 +80,7 @@ class ContactForm extends React.Component {
 			p.then(() => {
 				Alert.success("Thank you, your message was sent", {
 					position: 'top-right',
-          timeout: 'none',
+          timeout: 3000,
 				});
 				this.props.onChange({});
 			});

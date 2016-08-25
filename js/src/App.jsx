@@ -18,6 +18,7 @@ class App extends React.Component {
 		dataFn: React.PropTypes.func,
 		postFn: React.PropTypes.func,
 		height: React.PropTypes.int,
+		rowHeight: React.PropTypes.int,
 	}
 
 	static defaultProps = {
@@ -76,7 +77,7 @@ class App extends React.Component {
 	}
 
 	isSelected(id) {
-		return !!this.state.form.selection[id];
+		return this.state.form.selection && this.state.form.selection[id];
 	}
 
 	getColumns(data) {
@@ -130,10 +131,10 @@ class App extends React.Component {
 		const id = record.id;
 		const selected = this.isSelected(id);
 
-		let form = Object.assign({}, this.state.form);
+		let form = Object.assign({ selection: {} }, this.state.form);
 		if (selected) {
 			delete form.selection[id];
-		} else {
+		} else if (record) {
 			form.selection[id] = record[this.state.defaultColumn];
 		}
 
@@ -170,6 +171,7 @@ class App extends React.Component {
 							data={records}
 							columns={columns}
 							height={this.props.height}
+							rowHeight={this.props.rowHeight}
 						/>
 						<Pagination
 							count={this.state.pageCount}
