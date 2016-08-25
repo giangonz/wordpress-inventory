@@ -1,0 +1,103 @@
+.contactForm {
+}
+
+  .contactFormField {
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dotted #CECECF;
+  }
+
+    .contactFormFieldLabel {
+      display: block;
+      max-width: 100%;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .contactFormFieldInput ,
+    .contactFormFieldTextarea {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .contactFormFieldTextarea {
+      min-height: 100px;
+    }
+
+  .contactFormSelection {
+    border: 1px solid #A1A1A2;
+    border-radius: 4px;
+    background: white;
+    padding: 10px;
+  }
+
+    .contactFormSelectionMessage {
+      text-align: center;
+    	color: black;
+      font-weight: 400;
+      color: #6C6C6C;
+    	font: 18px;
+    }
+
+.actions {
+  text-align: right;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+
+  margin: 10px 0;
+  padding: 12px 12px;
+
+  cursor: pointer;
+  user-select: none;
+  transition: all 60ms ease-in-out;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none !important;
+  text-transform: none;
+  text-transform: capitalize;
+
+  color: #FFFFFF;
+  background: #07409B;
+
+  border: 0 none;
+  border-radius: 4px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+
+  justify-content: center;
+  align-items: center;
+
+}
+
+.button:hover {
+    transition: all 60ms ease;
+    opacity: .85;
+  }
+
+.button:active {
+    transition: all 60ms ease;
+    opacity: .75;
+}
+
+.button:focus {
+    outline: 1px dotted #959595;
+    outline-offset: -4px;
+}
