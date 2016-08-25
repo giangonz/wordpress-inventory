@@ -4,7 +4,7 @@
     var url = "<?= $dataUrl ?>";
 	ccsiInventory.mount("#<?= $divId; ?>" , {
 		height: <?= $height; ?>,
-		$rowHeight: <?= $rowHeight; ?>,
+		rowHeight: <?= $rowHeight; ?>,
         dataFn: function(search, limit, offset) {
             return jQuery.post(url, {
                 action: 'ccsi_inventory',

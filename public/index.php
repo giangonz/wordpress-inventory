@@ -19,7 +19,7 @@ function ccsi_inventory_shortcode( $atts, $content , $tag) {
     // Get Data
     $divId = uniqid("ccsi_inventory");
     $height = !empty($atts['height']) ? $atts['height'] - 0 : 500;
-    $rowHeight = !empty($atts['$rowHeight']) ? $atts['$rowHeight'] - 0 : 50;
+    $rowHeight = !empty($atts['rowheight']) ? $atts['rowheight'] - 0 : 50;
     $dataUrl = admin_url( 'admin-ajax.php' );
 
     // Render Template
