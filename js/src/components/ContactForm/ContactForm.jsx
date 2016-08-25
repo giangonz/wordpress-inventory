@@ -72,19 +72,17 @@ class ContactForm extends React.Component {
 		if (error) {
 			Alert.error(error, {
 				position: 'top',
-				stack: 1,
+        timeout: 'none',
 			});
 		} else if (this.props.onSubmit) {
 
-			this.props.onSubmit(this.props.data).then(() => {
+      const p = this.props.onSubmit(this.props.data);
+			p.then(() => {
 				Alert.success("Thank you, your message was sent", {
 					position: 'top',
+          timeout: 'none',
 				});
 				this.props.onChange({});
-			}).catch(() => {
-				Alert.error("There was an unexpected error", {
-					position: 'top',
-				});
 			});
 		}
 

@@ -25,10 +25,7 @@
             CREATE TABLE `${PREFIX}inventory` (
               `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
               `media_id` bigint(20) unsigned NOT NULL,
-              UNIQUE KEY `id` (`id`),
-              KEY `media_id` (`media_id`),
-              CONSTRAINT `wp_inventory_ibfk_1`
-              FOREIGN KEY (`media_id`) REFERENCES `wp_posts` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+              PRIMARY KEY (`id`)
             ) ENGINE=InnoDB $CHARSET_COLLATE;
 
             CREATE TABLE `${PREFIX}inventory_fields` (
@@ -38,8 +35,8 @@
               `position` int(11) unsigned NOT NULL,
               PRIMARY KEY (`id`),
               KEY `inventory_id` (`inventory_id`),
-              CONSTRAINT `wp_inventory_fields_ibfk_1`
-              FOREIGN KEY (`inventory_id`) REFERENCES `wp_inventory` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+              CONSTRAINT `${PREFIX}inventory_fields_ibfk_1`
+              FOREIGN KEY (`inventory_id`) REFERENCES `${PREFIX}inventory` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
             ) ENGINE=InnoDB $CHARSET_COLLATE;
 
             CREATE TABLE `${PREFIX}inventory_rows` (
@@ -47,7 +44,7 @@
               `inventory_id` int(11) unsigned NOT NULL,
               PRIMARY KEY (`id`),
               KEY `inventory_id` (`inventory_id`),
-              CONSTRAINT `wp_inventory_rows_ibfk_1` FOREIGN KEY (`inventory_id`) REFERENCES `wp_inventory` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+              CONSTRAINT `${PREFIX}inventory_rows_ibfk_1` FOREIGN KEY (`inventory_id`) REFERENCES `${PREFIX}inventory` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
             ) ENGINE=InnoDB $CHARSET_COLLATE;
 
             CREATE TABLE `${PREFIX}inventory_values` (
@@ -58,8 +55,8 @@
               PRIMARY KEY (`id`),
               KEY `row_id` (`row_id`),
               KEY `field_id` (`field_id`),
-              CONSTRAINT `wp_inventory_values_ibfk_2` FOREIGN KEY (`field_id`) REFERENCES `wp_inventory_fields` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-              CONSTRAINT `wp_inventory_values_ibfk_1` FOREIGN KEY (`row_id`) REFERENCES `wp_inventory_rows` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+              CONSTRAINT `${PREFIX}inventory_values_ibfk_2` FOREIGN KEY (`field_id`) REFERENCES `${PREFIX}inventory_fields` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+              CONSTRAINT `${PREFIX}inventory_values_ibfk_1` FOREIGN KEY (`row_id`) REFERENCES `${PREFIX}inventory_rows` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
              ) ENGINE=InnoDB $CHARSET_COLLATE;
         ";
 

@@ -18,9 +18,9 @@
 <div class="card pressthis">
 	<h2>Add a new Inventory List</h2>
 
-    <form method="post" enctype="multipart/form-data">
+    <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
         <input type='file' id='upload_inventory' name='upload_inventory' />
-        <?php submit_button('Upload') ?>
+  	    <?php submit_button('Upload', 'primary', 'administrator') ?>
     </form>
 
     <h2>Current Inventory Lists</h2>

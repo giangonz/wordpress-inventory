@@ -7,7 +7,7 @@
     }
 
     function ccsi_inventory_admin_menu( ) {
-        add_menu_page( 'Inventory', 'Inventory', 'read', 'ccsi-inventory' , 'ccsi_inventory_admin');
+        add_menu_page( 'Inventory', 'Inventory', 'administrator', 'ccsi-inventory' , 'ccsi_inventory_admin');
     }
 
     function ccsi_inventory_admin() {
@@ -49,8 +49,9 @@
                 $reader->setReadDataOnly(true);
                 $excel = $reader->load($filename);
                 $sheet = $excel->getActivesheet();
-                $rows = $sheet->getHighestRow();
+                $rows = $sheet->getHighestRow() - 0;
                 $cols = PHPExcel_Cell::columnIndexFromString( $sheet->getHighestColumn() );
+
 
                 // Insert the inventory
                 $data = array("media_id" => $uploaded);
@@ -89,13 +90,8 @@
         $delete_id = empty($_POST['_delete']) ? null : $_POST['_delete'];
         if(!empty($delete_id) && is_numeric($delete_id)) {
 
-            // Get the inventory to delete
-            $item = $wpdb->get_row("
-               SELECT * FROM ${PREFIX}inventory i WHERE i.id = $delete_id
-            ");
-
-            // Delete Media File
-            wp_delete_post( $item->media_id );
+            // Delete inventory
+			$wpdb->delete("${PREFIX}inventory", array("id" => $delete_id ));
 
             // Show success
             $success = "Successfully deleted uploaded file";

@@ -16,7 +16,6 @@
     },
     function(data) {
       data.action = 'ccsi_inventory_mail';
-      console.log(data);
       return jQuery.post(url, data);
     });
   });
