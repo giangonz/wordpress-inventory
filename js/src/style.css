@@ -1,15 +1,3 @@
-:global header {
-  z-index: 0 !important;
-}
-
-:global .s-alert-wrapper {
-  z-index: 10000 !important;
-}
-
-:global .s-alert-box {
-  z-index: 10000 !important;
-}
-
 .container {
   overflow: auto;
   margin: 20px;

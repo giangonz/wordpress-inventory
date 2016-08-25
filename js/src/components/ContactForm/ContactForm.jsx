@@ -71,7 +71,7 @@ class ContactForm extends React.Component {
 		// Show Error
 		if (error) {
 			Alert.error(error, {
-				position: 'top',
+				position: 'top-right',
         timeout: 'none',
 			});
 		} else if (this.props.onSubmit) {
@@ -79,7 +79,7 @@ class ContactForm extends React.Component {
       const p = this.props.onSubmit(this.props.data);
 			p.then(() => {
 				Alert.success("Thank you, your message was sent", {
-					position: 'top',
+					position: 'top-right',
           timeout: 'none',
 				});
 				this.props.onChange({});
